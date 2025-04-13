@@ -1,15 +1,18 @@
 const textEl = document.getElementById("text");
 const authorEl = document.getElementById("author");
 const newQuoteBtn = document.getElementById("new-quote");
-const tweetBtn = document.getElementById("tweet-quote");
+const prevQuoteBtn = document.getElementById("prev-quote");
+
 
 let quotes = [];
+let history = [];
+let currentIndex = -1;
 
 async function fetchQuotes() {
   try {
     const response = await fetch("https://raw.githubusercontent.com/Noximil/Kaamelott/d11fbad79d5a1e649bac2f127e8fadc2bc0b5a3b/kaamelott-quotes.json");
     quotes = await response.json();
-    displayQuote(); // Affiche une citation dès que c’est chargé
+    showNewQuote();
   } catch (error) {
     console.error("Erreur de chargement des citations :", error);
     textEl.textContent = "Impossible de charger les citations.";
@@ -17,19 +20,4 @@ async function fetchQuotes() {
   }
 }
 
-function getRandomQuote() {
-  return quotes[Math.floor(Math.random() * quotes.length)];
-}
-
-function displayQuote() {
-  if (quotes.length === 0) return;
-  const quote = getRandomQuote();
-  textEl.textContent = quote.text;
-  authorEl.textContent = `— ${quote.author}`;
-  tweetBtn.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-    `"${quote.text}" — ${quote.author}`
-  )}`;
-}
-
-window.onload = fetchQuotes;
-newQuoteBtn.addEventListener("click", displayQuote);
+showNewQuote();
