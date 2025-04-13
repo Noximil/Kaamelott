@@ -9,7 +9,7 @@ let currentIndex = -1; // Position actuelle dans l'historique
 
 async function fetchQuotes() {
   try {
-    const response = await fetch("https://raw.githubusercontent.com/Noximil/Kaamelott/d11fbad79d5a1e649bac2f127e8fadc2bc0b5a3b/kaamelott-quotes.json");
+    const response = await fetch("https://raw.githubusercontent.com/Noximil/Kaamelott/refs/heads/main/kaamelott-quotes.json");
     quotes = await response.json();
     showNewQuote();
   } catch (error) {
