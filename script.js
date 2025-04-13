@@ -1,12 +1,12 @@
 const textEl = document.getElementById("text");
 const authorEl = document.getElementById("author");
 const newQuoteBtn = document.getElementById("new-quote");
-const prevQuoteBtn = document.getElementById("prev-quote"); // ← Ajoute ce bouton dans ton HTML
+const prevQuoteBtn = document.getElementById("prev-quote"); 
 const tweetBtn = document.getElementById("tweet-quote");
 
 let quotes = [];
-let history = []; // stocke les index des dernières citations
-let currentIndex = -1; // position actuelle dans l'historique
+let history = []; 
+let currentIndex = -1;
 
 async function fetchQuotes() {
   try {
