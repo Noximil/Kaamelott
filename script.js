@@ -1,11 +1,13 @@
 const textEl = document.getElementById("text");
+const actorEl = document.getElementById("actor");
 const authorEl = document.getElementById("author");
+const infoEl = document.getElementById("extra-info");
 const newQuoteBtn = document.getElementById("new-quote");
 const prevQuoteBtn = document.getElementById("prev-quote");
 
 let quotes = [];
-let history = []; // Liste des index
-let currentIndex = -1; // Position actuelle dans l'historique
+let history = [];
+let currentIndex = -1;
 
 async function fetchQuotes() {
   try {
@@ -13,7 +15,6 @@ async function fetchQuotes() {
     quotes = await response.json();
     showNewQuote();
   } catch (error) {
-    console.error("Erreur de chargement :", error);
     textEl.textContent = "Impossible de charger les citations.";
     authorEl.textContent = "";
   }
@@ -29,9 +30,11 @@ function getRandomIndex() {
 }
 
 function showQuoteByIndex(index) {
-  const quote = quotes[index];
-  textEl.textContent = quote.quote;
-  authorEl.textContent = `— ${quote.author}`;
+  const q = quotes[index];
+  textEl.textContent = `“${q.quote}”`;
+  actorEl.textContent = `— ${q.actor}`;
+  authorEl.textContent = `Auteur : ${q.author}`;
+  infoEl.textContent = `${q.season} – ${q.title} (épisode ${q.episode})`;
 }
 
 function showNewQuote() {
@@ -44,8 +47,7 @@ function showNewQuote() {
 function showPreviousQuote() {
   if (currentIndex > 0) {
     currentIndex--;
-    const index = history[currentIndex];
-    showQuoteByIndex(index);
+    showQuoteByIndex(history[currentIndex]);
   }
 }
 
