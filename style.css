@@ -52,7 +52,7 @@ button, a#tweet-quote {
 }
 
 button:hover, a#tweet-quote:hover {
-  background-color: #357ab7;
+  background-color: #444f59;
 }
 
 @media (max-width: 480px) {
