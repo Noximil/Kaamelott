@@ -21,3 +21,43 @@ async function fetchQuotes() {
 }
 
 showNewQuote();
+} catch (error) {
+    console.error("Erreur de chargement des citations :", error);
+    textEl.textContent = "Impossible de charger les citations.";
+    authorEl.textContent = "";
+  }
+}
+
+function getRandomIndex() {
+  let index;
+  const recentIndexes = history.slice(-10);
+  do {
+    index = Math.floor(Math.random() * quotes.length);
+  } while (recentIndexes.includes(index) && quotes.length > 10);
+  return index;
+}
+
+function showQuoteByIndex(index) {
+  const quote = quotes[index];
+  textEl.textContent = quote.text;
+  authorEl.textContent = `— ${quote.author}`;
+  tweetBtn.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`"${quote.text}" — ${quote.author}`)}`;
+}
+
+function showNewQuote() {
+  const index = getRandomIndex();
+  showQuoteByIndex(index);
+  history.push(index);
+  currentIndex = history.length - 1;
+}
+
+function showPreviousQuote() {
+  if (currentIndex > 0) {
+    currentIndex--;
+    showQuoteByIndex(history[currentIndex]);
+  }
+}
+
+window.onload = fetchQuotes;
+newQuoteBtn.addEventListener("click", showNewQuote);
+prevQuoteBtn.addEventListener("click", showPreviousQuote);
