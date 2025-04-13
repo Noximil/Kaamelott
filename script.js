@@ -13,14 +13,6 @@ async function fetchQuotes() {
     const response = await fetch("https://raw.githubusercontent.com/Noximil/Kaamelott/d11fbad79d5a1e649bac2f127e8fadc2bc0b5a3b/kaamelott-quotes.json");
     quotes = await response.json();
     showNewQuote();
-  } catch (error) {
-    console.error("Erreur de chargement des citations :", error);
-    textEl.textContent = "Impossible de charger les citations.";
-    authorEl.textContent = "";
-  }
-}
-
-showNewQuote();
 } catch (error) {
     console.error("Erreur de chargement des citations :", error);
     textEl.textContent = "Impossible de charger les citations.";
