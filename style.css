@@ -39,7 +39,7 @@ body {
   align-items: center;
 }
 
-button, a#tweet-quote {
+button {
   background-color: #785505;
   color: white;
   border: none;
@@ -51,7 +51,7 @@ button, a#tweet-quote {
   cursor: pointer;
 }
 
-button:hover, a#tweet-quote:hover {
+button:hover {
   background-color: #444f59;
 }
 
