@@ -7,7 +7,7 @@ let quotes = [];
 
 async function fetchQuotes() {
   try {
-    const response = await fetch("https://tonsite.com/kaamelott-quotes.json");
+    const response = await fetch("https://raw.githubusercontent.com/Noximil/Kaamelott/d11fbad79d5a1e649bac2f127e8fadc2bc0b5a3b/kaamelott-quotes.json");
     quotes = await response.json();
     displayQuote(); // Affiche une citation dès que c’est chargé
   } catch (error) {
