@@ -30,7 +30,7 @@ function getRandomIndex() {
 
 function showQuoteByIndex(index) {
   const quote = quotes[index];
-  textEl.textContent = quote.text;
+  textEl.textContent = quote.quote;
   authorEl.textContent = `— ${quote.author}`;
 }
 
