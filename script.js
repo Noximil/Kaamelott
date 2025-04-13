@@ -6,7 +6,6 @@ const newQuoteBtn = document.getElementById("new-quote");
 const prevQuoteBtn = document.getElementById("prev-quote");
 const copyQuoteBtn = document.getElementById("copy-quote");
 const searchInput = document.getElementById("search");
-const searchResultsEl = document.getElementById("search-results");
 
 let quotes = [];
 let filteredQuotes = [];
@@ -20,25 +19,19 @@ async function fetchQuotes() {
     filteredQuotes = [...quotes];
     showNewQuote();
   } catch (error) {
-    textEl.textContent = "Erreur de chargement des citations.";
+    textEl.textContent = "Erreur de chargement.";
   }
 }
 
-function getRandomIndex() {
-  let index;
-  const recent = history.slice(-10);
-  do {
-    index = Math.floor(Math.random() * filteredQuotes.length);
-  } while (recent.includes(index) && filteredQuotes.length > 10);
-  return index;
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
 }
 
-function showQuoteByIndex(index) {
-  const q = filteredQuotes[index];
-  textEl.textContent = `“${q.quote}”`;
-  actorEl.textContent = `— ${q.actor}`;
-  authorEl.textContent = `Auteur : ${q.author}`;
-  infoEl.textContent = `${q.season} – ${q.title} (épisode ${q.episode})`;
+function showQuote(quote) {
+  textEl.textContent = `“${quote.quote}”`;
+  actorEl.textContent = `— ${quote.actor}`;
+  authorEl.textContent = `Auteur : ${quote.author}`;
+  infoEl.textContent = `${quote.season} – ${quote.title} (épisode ${quote.episode})`;
 }
 
 function showNewQuote() {
@@ -47,20 +40,19 @@ function showNewQuote() {
     actorEl.textContent = "";
     authorEl.textContent = "";
     infoEl.textContent = "";
-    searchResultsEl.innerHTML = "";
     return;
   }
 
-  const index = getRandomIndex();
-  showQuoteByIndex(index);
-  history.push(index);
+  const quote = filteredQuotes[getRandomIndex(filteredQuotes)];
+  showQuote(quote);
+  history.push(quote);
   currentIndex = history.length - 1;
 }
 
 function showPreviousQuote() {
   if (currentIndex > 0) {
     currentIndex--;
-    showQuoteByIndex(history[currentIndex]);
+    showQuote(history[currentIndex]);
   }
 }
 
@@ -76,21 +68,6 @@ function filterQuotes(keyword) {
   history = [];
   currentIndex = -1;
   showNewQuote();
-  updateSearchResults();
-}
-
-function updateSearchResults() {
-  searchResultsEl.innerHTML = "";
-  filteredQuotes.forEach((q, i) => {
-    const li = document.createElement("li");
-    li.textContent = `"${q.quote}" — ${q.actor}`;
-    li.addEventListener("click", () => {
-      showQuoteByIndex(i);
-      history.push(i);
-      currentIndex = history.length - 1;
-    });
-    searchResultsEl.appendChild(li);
-  });
 }
 
 function copyQuote() {
@@ -101,6 +78,7 @@ function copyQuote() {
   });
 }
 
+// Recherche aléatoire à chaque frappe
 searchInput.addEventListener("input", (e) => {
   filterQuotes(e.target.value);
 });
