@@ -16,14 +16,12 @@ let currentIndex = -1;
 
 async function fetchQuotes() {
   try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbzMYgieYsGehdP4rLFoEPbGJ42J7R04Ex9fTgdc9GNWbp94wIWEFClHmqaSj_EpDBQ/exec");
-    const data = await response.json();
-    quotes = data;
+    const res = await fetch(GET_URL);
+    quotes = await res.json();
     filteredQuotes = [...quotes];
     showNewQuote();
-  } catch (error) {
-    textEl.textContent = "Erreur de chargement depuis Google Sheets.";
-    console.error(error);
+  } catch (e) {
+    textEl.textContent = "Erreur de chargement.";
   }
 }
 
