@@ -1,0 +1,34 @@
+function doGet() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const data = sheet.getDataRange().getValues();
+  const headers = data.shift();
+
+  const results = data.map(row => {
+    const obj = {};
+    headers.forEach((header, i) => {
+      obj[header] = row[i];
+    });
+    return obj;
+  });
+
+  return ContentService
+    .createTextOutput(JSON.stringify(results))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function doPost(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet("1fAr0Hzrz0gEhAdbWJgbGczpAoNbdsUaHZ42KETwx23M").getActiveSheet("kaamelott_citation");
+  const data = JSON.parse(e.postData.contents);
+
+  sheet.appendRow([
+    data.quote,
+    data.actor,
+    data.character,
+    data.season,
+    data.title,
+    data.episode
+  ]);
+
+  return HtmlService.createHtmlOutput("Success")
+    .appendHeader("Access-Control-Allow-Origin", "*");
+}
