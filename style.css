@@ -91,10 +91,11 @@ button:hover {
 }
 
 /* ➕ Bouton Ajouter */
-#open-form-btn {
+#open-form-btn, #copy-quote {
   display: block;
   margin: 1rem auto 0 auto;
 }
+
 
 /* 🪟 Modale */
 .modal {
