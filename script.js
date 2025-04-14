@@ -60,11 +60,12 @@ function showPreviousQuote() {
 function filterQuotes(keyword) {
   const lower = keyword.toLowerCase();
   filteredQuotes = quotes.filter(q =>
-    q.quote.toLowerCase().includes(lower) ||
-    q.actor.toLowerCase().includes(lower) ||
-    q.author.toLowerCase().includes(lower) ||
-    q.season.toLowerCase().includes(lower) ||
-    q.title.toLowerCase().includes(lower)
+    q.quote?.toLowerCase().includes(lower) ||
+    q.actor?.toLowerCase().includes(lower) ||
+    q.character?.toLowerCase().includes(lower) ||
+    q.author?.toLowerCase().includes(lower) ||
+    q.season?.toLowerCase().includes(lower) ||
+    q.title?.toLowerCase().includes(lower)
   );
   history = [];
   currentIndex = -1;
