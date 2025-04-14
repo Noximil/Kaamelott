@@ -70,9 +70,9 @@ document.getElementById("copy-quote").addEventListener("click", () => {
   const quoteText = `${textEl.textContent} ${actorEl.textContent} (${infoEl.textContent})`;
   navigator.clipboard.writeText(quoteText);
 });
-document.getElementById("top-page-btn").addEventListener("click", () => {
+<!-- document.getElementById("top-page-btn").addEventListener("click", () => {
   window.location.href = "top.html";
-});
+}); -->
 
 likeBtn.addEventListener("click", async () => {
   const quoteId = likeBtn.dataset.quoteId;
