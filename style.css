@@ -144,19 +144,18 @@ button:hover {
   align-items: center;
   gap: 12px;
   margin-top: 1rem;
-  flex-wrap: nowrap; /* important : pas de wrap en mobile */
+  flex-wrap: nowrap;
 }
 
 .actions button {
-  padding: 10px 14px;
-  font-size: 1.1rem;
+  padding: 10px 16px;
+  font-size: 1rem;
   border-radius: 8px;
   background-color: #785505;
   color: white;
   border: none;
   cursor: pointer;
   transition: background 0.2s ease;
-  min-width: 50px;
 }
 
 .actions button:hover {
@@ -197,9 +196,17 @@ button:hover {
   .modal-content {
     margin-top: 25%;
   }
-.actions button {
-    padding: 8px 12px;
-    font-size: 1rem;
+  
+  .actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
+
+  .actions button {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
+}
   
 }
