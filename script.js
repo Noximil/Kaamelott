@@ -17,7 +17,7 @@ let currentIndex = -1;
 
 async function fetchQuotes() {
   try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbyKSOIbyiqGc_-IVP2-hBTfKTALwF5RcnhULcgCxzYb-w57bPL-_Lc4ajNRHb8NJB28Pg/exec");
+    const response = await fetch("https://script.google.com/macros/s/AKfycbxGIGh0PkfGSbXVbdzLxZWmQlAPuOLYBXDvHaMiCgFFFGZvgYKPLLINDUNCQYULnSaxOA/exec");
     quotes = await response.json();
     filteredQuotes = [...quotes];
     showNewQuote();
@@ -99,7 +99,7 @@ document.getElementById("quote-form").addEventListener("submit", async function 
   };
 
   try {
-    const res = await fetch("https://script.google.com/macros/s/AKfycbyKSOIbyiqGc_-IVP2-hBTfKTALwF5RcnhULcgCxzYb-w57bPL-_Lc4ajNRHb8NJB28Pg/exec", {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbxGIGh0PkfGSbXVbdzLxZWmQlAPuOLYBXDvHaMiCgFFFGZvgYKPLLINDUNCQYULnSaxOA/exec", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(citation)
