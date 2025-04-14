@@ -1,7 +1,7 @@
 // 🌟 Sélecteurs DOM
 const textEl = document.getElementById("text");
 const actorEl = document.getElementById("actor");
-const authorEl = document.getElementById("author");
+const characterEl = document.getElementById("character");
 const infoEl = document.getElementById("extra-info");
 const newQuoteBtn = document.getElementById("new-quote");
 const prevQuoteBtn = document.getElementById("prev-quote");
@@ -43,7 +43,7 @@ function getRandomIndex(array) {
 function showQuote(quote) {
   textEl.textContent = `“${quote.quote}”`;
   actorEl.textContent = `— ${quote.character}`;
-  authorEl.textContent = `Acteur : ${quote.actor}`;
+  characterEl.textContent = `Acteur : ${quote.actor}`;
   infoEl.textContent = `${quote.season} – ${quote.title} (épisode ${quote.episode})`;
 }
 
@@ -51,7 +51,7 @@ function showNewQuote() {
   if (filteredQuotes.length === 0) {
     textEl.textContent = "Aucune citation ne correspond à votre recherche.";
     actorEl.textContent = "";
-    authorEl.textContent = "";
+    characterEl.textContent = "";
     infoEl.textContent = "";
     return;
   }
@@ -82,7 +82,7 @@ function filterQuotes(keyword) {
       removeAccents(q.quote?.toLowerCase()).includes(lower) ||
       removeAccents(q.actor?.toLowerCase()).includes(lower) ||
       removeAccents(q.character?.toLowerCase()).includes(lower) ||
-      removeAccents(q.author?.toLowerCase()).includes(lower) ||
+      removeAccents(q.character?.toLowerCase()).includes(lower) ||
       removeAccents(q.season?.toLowerCase()).includes(lower) ||
       removeAccents(q.title?.toLowerCase()).includes(lower)
     );
@@ -91,7 +91,7 @@ function filterQuotes(keyword) {
   if (filteredQuotes.length === 0) {
     textEl.textContent = "Aucune citation ne correspond à votre recherche.";
     actorEl.textContent = "";
-    authorEl.textContent = "";
+    characterEl.textContent = "";
     infoEl.textContent = "";
     return;
   }
