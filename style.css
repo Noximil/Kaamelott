@@ -156,9 +156,11 @@ button:hover {
   .buttons {
     flex-direction: column;
     align-items: stretch;
+    align: center;
   }
 
   button {
+    align: center;
     width: 80%;
   }
 
