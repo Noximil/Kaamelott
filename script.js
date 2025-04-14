@@ -14,7 +14,7 @@ let currentIndex = -1;
 
 async function fetchQuotes() {
   try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbx4o-8T-kqlvib5hkeGAxCfu-QxjN-PKeP9ESI_h2hH5ATiwrr8Mnr1b7q6gz7Q0QaCxg/exec");
+    const response = await fetch("https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLhUybv3sxfJk3jfim-x4B0Qn2GVrrvhscyTzpD3r8IkXXDj_EDURTMRCfbOOU3I7yBm8MB8PednhoR_XeUxXfuHTA_OhvJ1QmUewcVt3FjLQowussQxsGRXwXv5ymv453Le62FtdqV31fm6HPB7RRiIZO5Sm_oeR9p-rEabT2vwDw1dWbzlHTj7nJn_cRYNPvYlK5lmA0DbxTrpCCEs7GuQt8h6Ofvxzh__b3WVBktC-hMfCASAq7i0banxGUZZBQj_ZQk5yLSh6fHIHVOxy_BZ3GTLkJrB-5_FEQ6c&lib=MDEX3XKaQdd4GgSFomj7uRUDGXD_noUCC");
     quotes = await response.json();
     filteredQuotes = [...quotes];
     showNewQuote();
