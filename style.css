@@ -1,4 +1,3 @@
-/* 🌄 Fond général */
 body {
   margin: 0;
   padding: 0;
@@ -12,7 +11,6 @@ body {
   align-items: center;
 }
 
-/* 📜 Citation principale */
 #quote-box {
   background: rgba(255, 255, 255, 0.85);
   padding: 30px;
@@ -23,7 +21,6 @@ body {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* 📝 Contenu de la citation */
 #text {
   font-size: 1.5rem;
   margin-bottom: 15px;
@@ -37,7 +34,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* 🔍 Barre de recherche */
 .search-container {
   display: flex;
   align-items: center;
@@ -65,7 +61,6 @@ body {
   color: #3a2f1c;
 }
 
-/* 🧭 Boutons */
 .buttons {
   display: flex;
   justify-content: space-between;
@@ -91,14 +86,6 @@ button:hover {
   background-color: #a67505;
 }
 
-/* ➕ Bouton Ajouter */
-#open-form-btn, #copy-quote {
-  display: block;
-  margin: 1rem auto 0 auto;
-}
-
-
-/* 🪟 Modale */
 .modal {
   display: none;
   position: fixed;
@@ -162,7 +149,6 @@ button:hover {
   background-color: #a67505;
 }
 
-/* Responsive */
 @media (max-width: 480px) {
   body {
     padding: 1rem;
@@ -208,5 +194,4 @@ button:hover {
     padding: 8px 12px;
   }
 }
-  
 }
