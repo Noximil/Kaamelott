@@ -159,11 +159,11 @@ button:hover {
   }
 
   button {
-    width: 100%;
+    width: 80%;
   }
 
   #search {
-    width: 160px;
+    width: 200px;
     font-size: 0.85rem;
   }
 
