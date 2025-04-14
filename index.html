@@ -9,11 +9,13 @@
 </head>
 <body>
   <div id="app">
-    
+
+  <!-- Recherche -->  
   <div class="search-container">
   <input type="text" id="search" placeholder="Rechercher une citation..." />
   </div>
-  
+    
+  <!-- Box -->
   <div id="quote-box">
   <p id="text">Chargement…</p>
   <p id="actor"></p>
@@ -23,7 +25,27 @@
     <button id="prev-quote">Citation précédente</button>
     <button id="new-quote">Nouvelle citation</button>
     <button id="copy-quote">Copier</button>
-  
+
+<!-- Bouton pour ouvrir le formulaire -->
+<button id="open-form-btn">➕ Ajouter une citation</button>
+
+<!-- Fenêtre modale -->
+<div id="formModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Ajouter une citation</h2>
+    <form id="quote-form">
+      <textarea name="quote" placeholder="Citation..." required></textarea>
+      <input type="text" name="actor" placeholder="Acteur·ice" required />
+      <input type="text" name="character" placeholder="Personnage" required />
+      <input type="text" name="season" placeholder="Livre / Saison" />
+      <input type="text" name="title" placeholder="Titre de l'épisode" />
+      <input type="number" name="episode" placeholder="Numéro d'épisode" />
+      <button type="submit">Ajouter</button>
+    </form>
+  </div>
+</div>
+    
   </div>
 </div>
 </div>
