@@ -69,7 +69,7 @@ function showPreviousQuote() {
   }
 }
 
-// 🔍 Recherche dynamique
+// 🔍 Recherche dynamique (accent-insensitive)
 function removeAccents(str) {
   return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
@@ -87,6 +87,14 @@ function filterQuotes(keyword) {
       removeAccents(q.title?.toLowerCase() || "").includes(lower)
     );
   });
+
+  if (filteredQuotes.length === 0) {
+    textEl.textContent = "Aucune citation ne correspond à votre recherche.";
+    actorEl.textContent = "";
+    authorEl.textContent = "";
+    infoEl.textContent = "";
+    return;
+  }
 
   history = [];
   currentIndex = -1;
