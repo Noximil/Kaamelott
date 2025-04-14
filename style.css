@@ -131,7 +131,7 @@ button:hover {
   align-items: center;
   gap: 12px;
   margin-top: 1rem;
-  flex-wrap: nowrap;
+  width: 100%;
 }
 
 .actions button {
