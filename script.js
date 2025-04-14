@@ -14,12 +14,13 @@ let currentIndex = -1;
 
 async function fetchQuotes() {
   try {
-    const response = await fetch("./kaamelott-quotes.json");
+    const response = await fetch("https://script.google.com/macros/s/AKfycbx4o-8T-kqlvib5hkeGAxCfu-QxjN-PKeP9ESI_h2hH5ATiwrr8Mnr1b7q6gz7Q0QaCxg/exec");
     quotes = await response.json();
     filteredQuotes = [...quotes];
     showNewQuote();
   } catch (error) {
-    textEl.textContent = "Erreur de chargement.";
+    textEl.textContent = "Erreur de chargement depuis Google Sheets.";
+    console.error(error);
   }
 }
 
@@ -29,8 +30,8 @@ function getRandomIndex(array) {
 
 function showQuote(quote) {
   textEl.textContent = `“${quote.quote}”`;
-  actorEl.textContent = `— ${quote.actor}`;
-  authorEl.textContent = `Auteur : ${quote.author}`;
+  actorEl.textContent = `— ${quote.character}`;
+  authorEl.textContent = `Acteur : ${quote.actor}`;
   infoEl.textContent = `${quote.season} – ${quote.title} (épisode ${quote.episode})`;
 }
 
