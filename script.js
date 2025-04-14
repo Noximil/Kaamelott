@@ -1,5 +1,5 @@
-const GET_URL = "https://script.google.com/macros/s/AKfycby67hep7a1FB8DGrJ1_cOkPm8QzvMTEM5STVxzrvoq_7odGE4cbDQQSpI70RQS9octd/exec";
-const POST_URL = "https://script.google.com/macros/s/AKfycby67hep7a1FB8DGrJ1_cOkPm8QzvMTEM5STVxzrvoq_7odGE4cbDQQSpI70RQS9octd/exec";
+const GET_URL = "https://script.google.com/macros/s/AKfycbzKOjMTSN1UKCuBC1E1pHUvP1gexqsfAX_R6Ipl0-W8_H1HuChGC69NaYc77giGSgqT/exec";
+const POST_URL = "https://script.google.com/macros/s/AKfycbzKOjMTSN1UKCuBC1E1pHUvP1gexqsfAX_R6Ipl0-W8_H1HuChGC69NaYc77giGSgqT/exec";
 
 const textEl = document.getElementById("text");
 const actorEl = document.getElementById("actor");
