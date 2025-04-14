@@ -87,8 +87,6 @@ likeBtn.addEventListener("click", async () => {
 
 window.onload = fetchQuotes;
 
-const likeCountEl = document.getElementById("like-count");
-
 // Gestion du bouton ❤️
 likeBtn.addEventListener("click", async () => {
   const quoteId = likeBtn.dataset.quoteId;
