@@ -99,7 +99,7 @@ document.getElementById("quote-form").addEventListener("submit", async function 
   };
 
   try {
-    const res = await fetch("https://script.google.com/macros/s/AKfycbyWk0LW0E9vqJhtgWF2zr2Bb5rRsYCS5B4-EY-LrMM6k5_hhxr0PORG2j6camUge_WEQQ/exec", {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbyQZedjXC5Jk465X_qIqshV0_G540iKQu93vLBVoYdbpy83xQoXJzmre3rUrky4vOIP/exec", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(citation)
