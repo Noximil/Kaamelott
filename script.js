@@ -13,7 +13,7 @@ const closeBtn = document.querySelector(".modal .close");
 const form = document.getElementById("quote-form");
 
 // 🌐 API Endpoints
-const GET_URL = "https://script.google.com/macros/s/AKfycbzhm2QxRyNu44Di73ypSZ_jeB_UinsE4zf0bMqcX2mVLh3wgDjvriLFMfUAooMyP3Ed/exec";
+const GET_URL = "https://script.google.com/macros/s/AKfycbzMYgieYsGehdP4rLFoEPbGJ42J7R04Ex9fTgdc9GNWbp94wIWEFClHmqaSj_EpDBQ/exec";
 const POST_URL = "https://script.google.com/macros/s/AKfycbzMYgieYsGehdP4rLFoEPbGJ42J7R04Ex9fTgdc9GNWbp94wIWEFClHmqaSj_EpDBQ/exec";
 
 // 📦 Données
