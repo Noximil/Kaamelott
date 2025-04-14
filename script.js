@@ -13,8 +13,8 @@ const closeBtn = document.querySelector(".modal .close");
 const form = document.getElementById("quote-form");
 
 // 🌐 API Endpoints
-const GET_URL = "https://script.google.com/macros/s/AKfycbz9gEQvzzHcN-zE1A6JURYC5TLssa6WcfndYZTwagvzPPS25b88oEJSM85GUT4E0dBb/exec";
-const POST_URL = "https://script.google.com/macros/s/AKfycbz9gEQvzzHcN-zE1A6JURYC5TLssa6WcfndYZTwagvzPPS25b88oEJSM85GUT4E0dBb/exec";
+const GET_URL = "https://script.google.com/macros/s/AKfycby67hep7a1FB8DGrJ1_cOkPm8QzvMTEM5STVxzrvoq_7odGE4cbDQQSpI70RQS9octd/exec";
+const POST_URL = "https://script.google.com/macros/s/AKfycby67hep7a1FB8DGrJ1_cOkPm8QzvMTEM5STVxzrvoq_7odGE4cbDQQSpI70RQS9octd/exec";
 
 // 📦 Données
 let quotes = [];
