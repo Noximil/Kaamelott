@@ -6,6 +6,9 @@ const newQuoteBtn = document.getElementById("new-quote");
 const prevQuoteBtn = document.getElementById("prev-quote");
 const copyQuoteBtn = document.getElementById("copy-quote");
 const searchInput = document.getElementById("search");
+const modal = document.getElementById("formModal");
+const openBtn = document.getElementById("open-form-btn");
+const closeBtn = document.querySelector(".modal .close");
 
 let quotes = [];
 let filteredQuotes = [];
@@ -80,6 +83,38 @@ function copyQuote() {
   });
 }
 
+
+// Gestion de la soumission du formulaire
+document.getElementById("quote-form").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const citation = {
+    quote: form.quote.value,
+    actor: form.actor.value,
+    character: form.character.value,
+    season: form.season.value,
+    title: form.title.value,
+    episode: form.episode.value
+  };
+
+  try {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbyKSOIbyiqGc_-IVP2-hBTfKTALwF5RcnhULcgCxzYb-w57bPL-_Lc4ajNRHb8NJB28Pg/exec", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(citation)
+    });
+    const text = await res.text();
+    alert("✅ Citation ajoutée !");
+    form.reset();
+    modal.style.display = "none";
+  } catch (err) {
+    alert("❌ Une erreur est survenue");
+    console.error(err);
+  }
+});
+
+
 // Recherche aléatoire à chaque frappe
 searchInput.addEventListener("input", (e) => {
   filterQuotes(e.target.value);
@@ -88,5 +123,16 @@ searchInput.addEventListener("input", (e) => {
 newQuoteBtn.addEventListener("click", showNewQuote);
 prevQuoteBtn.addEventListener("click", showPreviousQuote);
 copyQuoteBtn.addEventListener("click", copyQuote);
+openBtn.addEventListener("click", () => {
+  modal.style.display = "block";
+});
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
 
 window.onload = fetchQuotes;
