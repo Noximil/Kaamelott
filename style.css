@@ -4,6 +4,7 @@ body {
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
   background: url('kaamelott.svg') no-repeat center center fixed;
+  background-color: hsl(50, 33%, 25%);
   background-size: cover;
   height: 100vh;
   display: flex;
