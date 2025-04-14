@@ -72,7 +72,7 @@ document.getElementById("copy-quote").addEventListener("click", () => {
 });
 /* document.getElementById("top-page-btn").addEventListener("click", () => {
   window.location.href = "top.html";
-}); */
+});
 
 likeBtn.addEventListener("click", async () => {
   const quoteId = likeBtn.dataset.quoteId;
@@ -86,7 +86,8 @@ likeBtn.addEventListener("click", async () => {
     const count = parseInt(likeCountEl.textContent);
     likeCountEl.textContent = count + 1;
   });
-});
+}); */
+
 
 window.onload = fetchQuotes;
 
