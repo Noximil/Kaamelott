@@ -94,8 +94,8 @@ function copyQuote() {
   });
 }
 
-// 📝 Envoi du formulaire vers Google Sheet
-form.addEventListener("submit", async function (e) {
+// 📝 Envoi du formulaire (silencieux)
+form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   const citation = {
@@ -107,20 +107,16 @@ form.addEventListener("submit", async function (e) {
     episode: form.episode.value
   };
 
-  try {
-    await fetch(POST_URL, {
-      method: "POST",
-      headers: { "Content-Type": "text/plain" }, // CORS-friendly
-      body: JSON.stringify(citation)
-    });
-    alert("✅ Citation ajoutée !");
-    form.reset();
-    modal.style.display = "none";
-    fetchQuotes(); // Recharge les citations avec la nouvelle
-  } catch (err) {
-    alert("❌ Une erreur est survenue");
-    console.error(err);
-  }
+  // Envoi sans gestion de réponse (évite les erreurs CORS)
+  fetch(POST_URL, {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(citation)
+  });
+
+  form.reset();
+  modal.style.display = "none";
+  fetchQuotes(); // Recharge les citations après envoi
 });
 
 // 🎛️ Événements UI
@@ -128,7 +124,6 @@ searchInput.addEventListener("input", (e) => filterQuotes(e.target.value));
 newQuoteBtn.addEventListener("click", showNewQuote);
 prevQuoteBtn.addEventListener("click", showPreviousQuote);
 copyQuoteBtn.addEventListener("click", copyQuote);
-
 openBtn.addEventListener("click", () => modal.style.display = "block");
 closeBtn.addEventListener("click", () => modal.style.display = "none");
 window.addEventListener("click", (e) => {
