@@ -90,9 +90,9 @@ likeBtn.addEventListener("click", async () => {
 
 window.onload = fetchQuotes;
 
-// Gestion du bouton ❤️
-/* likeBtn.addEventListener("click", async () => {
-  const quoteId = likeBtn.dataset.quoteId; */
+/* // Gestion du bouton ❤️
+ likeBtn.addEventListener("click", async () => {
+  const quoteId = likeBtn.dataset.quoteId; 
 
   // Récupérer l'IP publique de l'utilisateur
   const ip = await fetch("https://api64.ipify.org?format=json")
@@ -114,3 +114,4 @@ window.onload = fetchQuotes;
       console.error("Erreur lors de l'envoi du like :", err);
     });
 });
+*/
