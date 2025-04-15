@@ -42,16 +42,16 @@ function getRandomIndex(array) {
 
 function showQuote(quote) {
   textEl.textContent = `“${quote.quote}”`;
-  actorEl.textContent = `— ${quote.character}`;
-  characterEl.textContent = `Acteur : ${quote.actor}`;
+  characterEl.textContent = `— ${quote.character}`;
+  actorEl.textContent = `Acteur : ${quote.actor}`;
   infoEl.textContent = `${quote.season} – ${quote.title} (épisode ${quote.episode})`;
 }
 
 function showNewQuote() {
   if (filteredQuotes.length === 0) {
     textEl.textContent = "Aucune citation ne correspond à votre recherche.";
-    actorEl.textContent = "";
     characterEl.textContent = "";
+    actorEl.textContent = "";
     infoEl.textContent = "";
     return;
   }
