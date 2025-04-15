@@ -1,4 +1,4 @@
-// 🌟 Sélecteurs DOM
+// Sélecteurs
 const textEl = document.getElementById("text");
 const actorEl = document.getElementById("actor");
 const characterEl = document.getElementById("character");
@@ -12,17 +12,17 @@ const openBtn = document.getElementById("open-form-btn");
 const closeBtn = document.querySelector(".modal .close");
 const form = document.getElementById("quote-form");
 
-// 🌐 API Endpoints
+// API Endpoints
 const GET_URL = "https://script.google.com/macros/s/AKfycbyOXWslK-djsAMZyQNa049U9g4xEWGfpBbEpO3ANZ53-Utkail2iqUlHlGHvDqETdWK/exec";
 const POST_URL = "https://script.google.com/macros/s/AKfycbyOXWslK-djsAMZyQNa049U9g4xEWGfpBbEpO3ANZ53-Utkail2iqUlHlGHvDqETdWK/exec";
 
-// 📦 Données
+// Données
 let quotes = [];
 let filteredQuotes = [];
 let history = [];
 let currentIndex = -1;
 
-// 🔁 Récupération des citations
+// Récupération des citations
 async function fetchQuotes() {
   try {
     const response = await fetch(GET_URL);
@@ -35,7 +35,7 @@ async function fetchQuotes() {
   }
 }
 
-// 🎲 Affichage d'une citation
+// Affichage d'une citation
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
@@ -69,7 +69,7 @@ function showPreviousQuote() {
   }
 }
 
-// 🔍 Recherche dynamique (accent-insensitive)
+// Recherche dynamique
 function removeAccents(str) {
   return (str || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
@@ -101,7 +101,7 @@ function filterQuotes(keyword) {
   showNewQuote();
 }
 
-// 📋 Copier la citation
+// Copier la citation
 function copyQuote() {
   const quoteText = `${textEl.textContent} ${actorEl.textContent} (${infoEl.textContent})`;
   navigator.clipboard.writeText(quoteText).then(() => {
@@ -110,7 +110,7 @@ function copyQuote() {
   });
 }
 
-// 📝 Envoi du formulaire (silencieux)
+// Envoi du formulaire
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -123,7 +123,6 @@ form.addEventListener("submit", function (e) {
     episode: form.episode.value
   };
 
-  // Envoi sans gestion de réponse (évite les erreurs CORS)
   fetch(POST_URL, {
     method: "POST",
     headers: { "Content-Type": "text/plain" },
@@ -135,7 +134,7 @@ form.addEventListener("submit", function (e) {
   fetchQuotes(); // Recharge les citations après envoi
 });
 
-// 🎛️ Événements UI
+// Événements 
 searchInput.addEventListener("input", (e) => filterQuotes(e.target.value));
 newQuoteBtn.addEventListener("click", showNewQuote);
 prevQuoteBtn.addEventListener("click", showPreviousQuote);
@@ -146,5 +145,4 @@ window.addEventListener("click", (e) => {
   if (e.target === modal) modal.style.display = "none";
 });
 
-// 🚀 Initialisation
 window.onload = fetchQuotes;
