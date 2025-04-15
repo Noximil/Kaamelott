@@ -149,6 +149,18 @@ button:hover {
   background-color: #a67505;
 }
 
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #ccc;
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
+footer p {
+  margin: 0.2rem 0;
+}
+
 @media (max-width: 480px) {
   body {
     padding: 1rem;
