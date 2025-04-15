@@ -106,7 +106,7 @@ function copyQuote() {
   const quoteText = `${textEl.textContent} ${actorEl.textContent} (${infoEl.textContent})`;
   navigator.clipboard.writeText(quoteText).then(() => {
     copyQuoteBtn.textContent = "Copié !";
-    setTimeout(() => copyQuoteBtn.textContent = "Copier la citation", 2000);
+    setTimeout(() => copyQuoteBtn.textContent = "📋", 2000);
   });
 }
 
